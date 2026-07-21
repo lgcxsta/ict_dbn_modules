@@ -8,22 +8,6 @@ body {
     text-align: center; 
     margin-bottom: 30px; 
 }
-.navigation button { 
-    background: none; 
-    border: none; 
-    font-size: 16px; 
-    font-weight: bold; 
-    color: #0d4d4d; 
-    cursor: pointer; 
-    margin: 0 10px; 
-    padding: 5px 10px; 
-    transition: 0.2s; 
-}
-
-.navigation button.actif { 
-    color: #008080; 
-    text-decoration: underline; 
-}
 
 .msgInfo { 
     text-align: center; 
@@ -52,15 +36,31 @@ body {
     border-radius: 12px; 
     padding: 24px; 
     width: 100%;
+    box-sizing: border-box;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-    border-left: 6px solid #1a2b3c; 
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
 }
 
+.borderCIE {
+    border-left: 6px solid #0A9F7A; 
+}
+.borderEP {
+    border-left: 6px solid #1a2b3c; 
+}
+
 .nbModule { 
     color: #0d4d4d; 
     margin-top: 0; 
-    font-size: 15px; 
+    font-size: 20px; 
+    margin-bottom: 4px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.titleModule {
+    color: #7e7e7e;
+    margin-top: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
 }
