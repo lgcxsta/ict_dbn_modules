@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modules</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+
+
+    <div ng-app="affichageModules" ng-controller="Affichage" class="container">
+        <!-- ng-app = definit que cette div est une application angular avec e nom "affichageModules" -->
+        <!-- ng-controller = definit la fonction js que la section html doit suivre -->
+
+        <!-- Filtrage -->
+        <div class="navigation">
+            <button ng-click="filtreActif = ''" ng-class="{'actif': filtreActif === ''}">
+                <!-- ng-click = onclick -->
+                <!-- ng-class = add la classe CSS si la condition est vrai -->
+                <!-- si filtreActif est vide, ajoute la classe CSS .actif -->
+                Tous les cours
+            </button>
+            <button ng-click="filtreActif = 'École professionnelle'"
+                ng-class="{'actif': filtreActif === 'École professionnelle'}">
+                École professionnelle
+            </button>
+            <button ng-click="filtreActif = 'Cours inter-entreprises'"
+                ng-class="{'actif': filtreActif === 'Cours inter-entreprises'}">
+                Cours inter-entreprises (CIE)
+            </button>
+        </div>
+
+        <!-- Messages (chargement, erreur) -->
+        <div ng-if="chargement" class="msgInfo">
+            <!-- ng-if = si la condition est vrai, afficher l'élement (copie de l'élement), sinon, supprime l'élement du DOM -->
+            Chargement des modules
+        </div>
+        <div ng-if="erreur" class="msgError">
+            Impossible de charger les modules. Erreur.
+        </div>
+
+        <!-- grille des modules -->
+        <div class="grilleModules" ng-if="!chargement && !erreur">
+            <div class="cardModule"
+                ng-repeat="item in listeModules | filter: { beembk_Lernort: { beembk_lernortname_fr: filtreActif } }">
+                <!-- ng-repeat = regarde le tableau listeModules, pour chaque module recrie la boîte html -->
+                <!-- créé une var temporaire item (contient les infos) et affiche à l'ecran -->
+                <!-- Filtre et garde seuleement les modules qui correspondent a filtreActif-->
+                <h3 class="nbModule">
+                    Module {{ item.beembk_Modul.beembk_modulnummer }} <!-- nombre du module -->
+                </h3>
+                <p class="titleModule">
+                    {{ item.beembk_Modul.beembk_modultitel_fr }} <!-- titre du module -->
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- charge le fichier js -->
+    <script src="app.js"></script>
+</body>
+
+</html>
