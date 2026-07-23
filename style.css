@@ -64,3 +64,11 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
 }
+
+.annee {
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px; 
+    color: #0D4D4D;
+    margin-top: 70px;
+}

@@ -9,6 +9,13 @@ app.controller("affichageCtrl", function ($scope, $http) {
     window.open(lien, "_blank"); // Ouverture d'ne nouvelle page dans le navigateur, qui permet de visualiser le pdf
   };
 
+  $scope.anneeApprentissage = [
+    "1\u00e8re ann\u00e9e d'apprentissage",
+    "2\u00e8me ann\u00e9e d'apprentissage",
+    "3\u00e8me ann\u00e9e d'apprentissage",
+    "4\u00e8me ann\u00e9e d'apprentissage",
+  ];
+
   $http({
     // requête https
     method: "GET",
